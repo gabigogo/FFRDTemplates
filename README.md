@@ -8,7 +8,7 @@ A draft repository for FFRD Templates and Schemas
         # The common files directory stores all pre-model datasets, guidance, and documentation for the project
         # This directory houses all of the official data delivered prior to kickoff as listed in Section 2.4.3. Ad-hoc 
         # sharing of unofficial data should not be posted to the common files directory
-        -"00_GuidanceSOP"
+        - "00_GuidanceSOP"
         - "01_DataPrep":
             - "CalibrationMetrics"
             - "ExistingModels"
