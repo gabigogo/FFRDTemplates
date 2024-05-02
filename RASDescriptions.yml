@@ -1,0 +1,83 @@
+# TODO Expand for other modeling features
+# This is a draft and pilot YML File to aid in establishing an industry standard
+# structured description for FFRD HEC-RAS Model elements
+project: 
+    description: | "Program and Version: HEC-RAS 6.3.1 September 2022\n
+        Status of Model: {{status}}\n
+        Primary Basin: {{huc4_name}}\n
+        Modeling Unit: {{model_name}}\n
+        Date of last modification: {{last_modified}}\n         
+        Model Developed by: {{company}}/{{agency_name}}\n
+        Vertical datum and units: NAVD 88, feet\n
+        Horizontal datum and units: NAD 1983, feet\n
+        Horizontal Projection: USA_Contiguous_Albers_Equal_Area_Conic_USGS_version\n
+        -------------------------------------------------------------------------------
+        Extended FFRD Description Below this line. 
+        -------------------------------------------------------------------------------
+        Project Number: {{project_no}}\n
+        Associated Technical Report: {{technical_report_file_name}}\n
+        Contract Number: {{contract_no}}\n
+        Project Name: {{project_name}}\n
+        Study Date: {{study_date}}\n
+        Source Data:\n
+            Topographic Data: {{topographic_source}} {{topographic_vintage}}\n
+            Landuse Data: {{landuse_source}} {{landuse_vintage}}\n
+            Manningns Data: {{mannings_source}} {{mannings_vintage}}\n
+            Imperviousness Data: {{imperviousness_source}} {{imperviousness_vintage}}\n
+            Soil Data:{{soil_source}} {{soil_vintage}}\n
+            Precipitation Data: {{precip_source}} {{precip_source_vintage}}\n"
+            
+    status_options: 
+        # FFRD MODEL STATUS OPTIONS
+        - "Interim Review"
+        - "Final Review"
+        - "Final Draft"
+        - "Final"
+    ras_versions: 
+        # USE VERSION CODE IN UI to ensure STANDARDIZED SPELLING OF RAS VERSION 
+        "6.3.1": "HEC-RAS 6.3.1 September 2022"
+        "6.4.1": "HEC-RAS 6.3.1 September 2023"
+        "6.5.0": "HEC-RAS 6.3.1 September 2024"
+        # To be extended as new Ras Versions come out. 
+
+plan:
+    # A conceptual description for RAS Plan/Simulation Names
+    description: | "
+        {{custom_orginzation_agency_header}}\n
+        Status of Model: {{status}}\n
+        Model Type: {{model_type}}\n
+        Model Name: {{plan_name}} - {{short_id}}
+        Model Last Ran: {{last_ran_date}}\n
+        Model Last Edited: {{last_edited}}\n
+        Approximate Run Time: {{simulation_run_time}} minutes"
+        
+    model_types: 
+        - "1DUnsteady"
+        - "1DSteady"
+        - "2DUnsteady-Pluvial"
+        - "2DUnsteady-Fluvial"
+        - "2DUnsteady-JointProbability"
+        - "2DQuasiUnsteady-Fluvial"
+
+geometry: 
+        # Using JSON-styled structured format for element descriptions will allow for quicker parsing of geometry/text files for the construction of the project or other databases downstream"
+    mesh: 
+        description:  "name: {{name}}; primary_stream: {{primary_stream}}; other_streams: {{other_streams}}; assumptions: {{assumptionss}}; notes: {{notes}}"
+    structures:
+        description: "stream_name: {{stream_name}}; road_name:{{road_name}}; crossing_type: {{corssing_type}}; approx_station: {{station}} ; data_source: {{data_source}}; source_vintage: {{vintage}}; source_id: {{source_id}}; assumptions: {{assumptions}}; details: {{}}; notes: {{nodes}}"
+        crossing_types: ["Bridge", "Culvert" ]
+    # TODO EXTEND to include more Geometry Elements like descriptions for Storage Areas, Gates, Weirs
+    ic_points:
+        description: "name: {{name}}; applied_wsel: {{wsel}} ft.; assumptions: {{}};"
+    reference_line:
+       description: "name: {{}}; observation_source: {{observation_source}}; source_id: {{source_id}}; calibration_results: {R2:{{R2}}}; NSE:{{nse}}; StdDev: {{StdDev}}; PBIAS:{{pbias}} };"
+      # Ideally sources will be usgs gage points and source id will map to the usgs gage id. 
+        
+unsteady: 
+    description:
+\
+      
+
+    
+    
+    
